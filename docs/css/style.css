@@ -82,6 +82,7 @@ button {
   outline: none;
   cursor: pointer;
   border: none;
+  font-family: Inter;
 }
 
 .container {
@@ -109,20 +110,28 @@ button {
   }
 }
 
-.parallax {
+.parallax-bc-sun {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.parallax-bc-sun {
-  width: 110%;
-  height: 110%;
   background-image: url("../img/sun-mask.png"), url("../img/morning.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+
+.parallax-bc-moon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/moon-mask.png"), url("../img/night.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  z-index: -1;
 }
 
 .time__phrase-block {
@@ -135,7 +144,7 @@ button {
 
 .phrase-text {
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #fff;
   line-height: 28px;
   padding-right: 15px;
@@ -149,8 +158,157 @@ button {
 
 .phrase-author {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #fff;
   line-height: 28px;
   padding-top: 13px;
+}
+
+.time {
+  padding-top: 120px;
+}
+
+.time-welcome-block {
+  display: flex;
+}
+
+.time-welcome {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.time-current {
+  padding-left: 10px;
+}
+
+.time-clock {
+  display: flex;
+  padding-top: 16px;
+}
+
+.time-curr-hours {
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  font-weight: 700;
+  font-size: 5rem;
+}
+
+.time-curr-timezone {
+  font-weight: 300;
+  font-size: 1.5rem;
+  padding-left: 11px;
+}
+
+.time__btn-more {
+  display: flex;
+  justify-content: end;
+  padding: 60px 0;
+}
+
+.btn-show-more {
+  position: relative;
+  background-color: #fff;
+  border-radius: 28px;
+  padding: 15px 42px 15px 15px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: gray;
+}
+.btn-show-more:hover > .btn-more-svg, .btn-show-more:focus > .btn-more-svg {
+  background-color: #999999;
+}
+
+.btn-more-svg {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #303030;
+  transition: 250ms;
+}
+
+.btn-more-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timezone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20.3871px);
+  color: #303030;
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+.is-dark {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20.3871px);
+}
+
+.is-dark > .timezone-title {
+  color: #fff;
+}
+
+.is-dark > .timezome-desc {
+  color: #fff;
+}
+
+.line {
+  border-bottom: 1px solid #b8babc;
+  margin: 60px 0;
+}
+
+.timezone-title {
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+.timezone-title--padding {
+  padding-top: 42px;
+}
+
+.timezome-desc {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 28px;
+  padding-top: 9px;
+}
+
+.timezone-btn-close {
+  position: absolute;
+  top: 15px;
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #b8babc;
+  animation-name: btn-animate;
+  animation-duration: 1.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes btn-animate {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(15px);
+  }
 }
