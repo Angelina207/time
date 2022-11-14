@@ -51,8 +51,10 @@
     padding-top: 13px;
 }
 
+// show time
 .time{
-    padding-top: 120px;
+    position: relative;
+    padding: 120px 0 100px;
 }
 .time-welcome-block{
     display: flex;
@@ -83,16 +85,21 @@
     font-size: 1.5rem;
     padding-left: 11px;
 }
-.time__btn-more{
-    display: flex;
-    justify-content: end;
-    padding: 60px 0;
+
+// btn more / less timezone
+.time__btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 115px;
+    height: 45px;
+    transition: all 250ms ease;
 }
-.btn-show-more{
-    position: relative;
+.btn-timezone{
     background-color: #fff;
     border-radius: 28px;
     padding: 15px 42px 15px 15px;
+    width: 115px;
     letter-spacing: 5px;
     font-weight: 700;
     font-size: 0.8rem;
@@ -104,7 +111,7 @@
 }
 .btn-more-svg{
     position: absolute;
-    top: 8px;
+    top: calc(50% - 15px);
     right: 5px;
     width: 30px;
     height: 30px;
@@ -122,19 +129,25 @@
 // hidden block
 .timezone{
     position: absolute;
-    top: 0;
+    top: 100%;
     left: 0;
-    height: 100%;
+    height: 0;
     width: 100%;
+    overflow: hidden;
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20.3871px);
     color: #303030;
+    padding: 0;
+    transition: all 300ms;
+}
+.is-open{
+    top: 0%;
+    height: calc(100% + 40px);
     padding: 80px 20px;
     box-sizing: border-box;
 }
 .is-dark{
     background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(20.3871px);
 }
 .is-dark > .timezone-title{
     color: #fff;
@@ -183,4 +196,45 @@
     to {
         transform: translateY(15px);
     }
+}
+
+@media screen and (min-width: 480px){
+    .time__btn{
+        bottom: 50px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .timezone{
+        display: flex;
+        overflow: scroll;
+        top: 100%;
+        transition: height 300ms ease;
+    }
+    .line{
+        border-left: 1px solid #B8BABCFF;
+        height: 100%;
+        border-bottom: none;
+        margin: 0 94px;
+    }
+    .is-open{
+        top: auto;
+        bottom: 0;
+        height: 50vh;
+        padding: 40px 60px;
+    }
+    .timezone-btn-close {
+        display: none;
+    }
+    .timezone-title{
+        letter-spacing: 3px;
+    }
+    .timezome-desc{
+        line-height: 67px;
+    }
+}
+@media screen and (min-width: 1024px) {
+
+}
+@media screen and (min-width: 1440px) {
+
 }
