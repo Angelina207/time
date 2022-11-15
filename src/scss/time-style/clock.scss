@@ -25,25 +25,45 @@
     z-index: -1;
 }
 
-.time__phrase-block{
+.time__quote-block{
+    position: relative;
+    min-height: 100px;
     padding-top: 56px;
+    max-width: 540px;
+    transition: all 500ms ease;
 }
-.phrase-block{
+.is-hidden{
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: all 500ms ease;
+}
+.quote-block{
     display: flex;
 }
-.phrase-text{
+.quote-wrapp{
+    position: absolute;
+    transition: all 1000ms ease;
+}
+.quote-text{
     font-weight: 400;
     font-size: 0.9rem;
     color: #fff;
     line-height: 28px;
-    padding-right: 15px;
+    max-width: 540px;
+    padding-right: 40px;
+    box-sizing: border-box;
 }
-.phrase-btn-random{
+.quote-btn-random{
+    position: absolute;
+    right: 0;
     background-color: transparent;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
 }
-.phrase-author{
+.quote-btn-icon{
+    transition: all 1s ease-out;
+}
+.quote-author{
     font-weight: 700;
     font-size: 0.9rem;
     color: #fff;
@@ -89,7 +109,6 @@
 // btn more / less timezone
 .time__btn{
     position: absolute;
-    bottom: 0;
     right: 0;
     width: 115px;
     height: 45px;
@@ -117,7 +136,7 @@
     height: 30px;
     border-radius: 50%;
     background-color: #303030;
-    transition: 250ms;
+    transition: all 300ms ease;
 }
 .btn-more-icon{
     position: absolute;
@@ -138,21 +157,19 @@
     backdrop-filter: blur(20.3871px);
     color: #303030;
     padding: 0;
-    transition: all 300ms;
 }
 .is-open{
     top: 0%;
     height: calc(100% + 40px);
     padding: 80px 20px;
     box-sizing: border-box;
+    transition: height 300ms ease;
 }
 .is-dark{
     background: rgba(0, 0, 0, 0.75);
 }
-.is-dark > .timezone-title{
-    color: #fff;
-}
-.is-dark > .timezome-desc{
+.is-dark > div > .timezone-title,
+.is-dark > div > .timezome-desc{
     color: #fff;
 }
 .line{
@@ -198,17 +215,31 @@
     }
 }
 
-@media screen and (min-width: 480px){
-    .time__btn{
-        bottom: 50px;
-    }
-}
 @media screen and (min-width: 768px) {
+    .quote-text{
+        font-size: 1.1rem;
+    }
+    .quote-author{
+        font-size: 1.1rem;
+    }
+    .time{
+        padding: 200px 0 100px;
+    }
+    .time-welcome{
+        font-size: 1.2rem;
+        letter-spacing: 4px;
+    }
+    .time-curr-hours{
+        font-size: 9rem;
+    }
+    .time-curr-timezone{
+        font-size: 2.5rem;
+    }
     .timezone{
         display: flex;
-        overflow: scroll;
+        align-items: center;
+        overflow-y: scroll;
         top: 100%;
-        transition: height 300ms ease;
     }
     .line{
         border-left: 1px solid #B8BABCFF;
@@ -233,8 +264,15 @@
     }
 }
 @media screen and (min-width: 1024px) {
-
+    .timezome-desc{
+       font-size: 3.5rem;
+    }
 }
 @media screen and (min-width: 1440px) {
-
+.time-curr-hours{
+    font-size: 12.5rem;
+}
+.time-curr-timezone{
+    font-size: 2.5rem;  
+    }
 }
