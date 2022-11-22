@@ -1,5 +1,17 @@
 export function date() {
-    const date = new Date();
+// get time
+    (function() {
+        const date = new Date();
 
-    console.log(date)
+        function getDate() {
+            document.querySelector('#day').innerHTML = date.getDay();
+        }
+        getDate()
+
+        // setInterval(() => {
+        //     return minutes.innerHTML = getMinutes();
+        // }, 1000)
+    
+
+    }) ()
 }

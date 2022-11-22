@@ -221,11 +221,18 @@ button {
   font-weight: 700;
   font-size: 5rem;
 }
+.time-curr-hours ~ .colon {
+  padding-bottom: 5px;
+}
 
 .time-curr-timezone {
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
   font-weight: 300;
   font-size: 1.5rem;
   padding-left: 11px;
+  padding-bottom: 15px;
 }
 
 .time__btn {
@@ -289,12 +296,12 @@ button {
   transition: height 300ms ease;
 }
 
-.is-dark {
+#is-dark {
   background: rgba(0, 0, 0, 0.75);
 }
 
-.is-dark > div > .timezone-title,
-.is-dark > div > .timezome-desc {
+#is-dark > div > .timezone-title,
+#is-dark > div > .timezome-desc {
   color: #fff;
 }
 
@@ -343,6 +350,11 @@ button {
     transform: translateY(15px);
   }
 }
+@media screen and (min-width: 480px) {
+  .time-curr-hours {
+    font-size: 7rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .quote-text {
     font-size: 1.1rem;
@@ -359,6 +371,9 @@ button {
   }
   .time-curr-hours {
     font-size: 9rem;
+  }
+  .time-curr-hours ~ .colon {
+    padding-bottom: 15px;
   }
   .time-curr-timezone {
     font-size: 2.5rem;
@@ -399,8 +414,5 @@ button {
 @media screen and (min-width: 1440px) {
   .time-curr-hours {
     font-size: 12.5rem;
-  }
-  .time-curr-timezone {
-    font-size: 2.5rem;
   }
 }
