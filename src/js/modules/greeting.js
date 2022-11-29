@@ -19,8 +19,8 @@ export function greetingPage() {
         
         // Update time
         setInterval(() => {
-            hours.innerHTML = new Date().getHours().toLocaleString();
-            minutes.innerHTML = new Date().getMinutes().toLocaleString();
+            hours.innerHTML = addZero(new Date().getHours().toLocaleString());
+            minutes.innerHTML = addZero(new Date().getMinutes().toLocaleString());
         }, 2000)
 
         // Set hours
