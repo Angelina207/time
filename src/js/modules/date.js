@@ -1,16 +1,29 @@
-// Moment.js lib, Luxon
+// Luxon.js from Moment.js
 import { DateTime } from "luxon";
-const dt = DateTime.now();
+import moment from "moment-timezone";
 
-const timezoneOption = {
-    'timezone': dt.zoneName,
-    'week day': dt.weekday.toLocaleString(),
-    'week year': dt.weekNumber.toLocaleString(),
-}
+const dayOfYear = DateTime.fromObject().toFormat('ooo').toString();
+const week = DateTime.fromObject({}, { day: "local" }).weekNumber.toLocaleString();
+const day = DateTime.fromObject ({}, { day: "local" }).weekday.toLocaleString();
 
-document.querySelector('#week').innerHTML = timezoneOption['week year'];
-document.querySelector('#day').innerHTML = timezoneOption['week day'];
-document.querySelector('#timezone').innerHTML = timezoneOption.timezone;
+document.querySelector('#dayOfYear').innerHTML = dayOfYear;
+document.querySelector('#week').innerHTML = week;
+document.querySelector('#day').innerHTML = day;
+
+// Moment.js / Set timezone
+const dt = new Date();
+const currTimeZone = dt.getTimezoneOffset()
+
+
+const timeZoneName = moment.tz.guess();
+const timeZoneAbbr = moment.tz(timeZoneName).format('z');
+
+document.querySelector('#timezone').innerHTML = timeZoneName;
+document.querySelector('#shortNameZone').innerHTML = timeZoneAbbr;
+
+console.log(timeZoneName); // Asia/Baku
+console.log(currTimeZone); // -240
+console.log(moment.tz.zone(timeZoneName).abbr(currTimeZone)); // +04
 
 
 
