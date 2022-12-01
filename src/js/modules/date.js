@@ -11,19 +11,11 @@ document.querySelector('#week').innerHTML = week;
 document.querySelector('#day').innerHTML = day;
 
 // Moment.js / Set timezone
-const dt = new Date();
-const currTimeZone = dt.getTimezoneOffset()
-
-
 const timeZoneName = moment.tz.guess();
 const timeZoneAbbr = moment.tz(timeZoneName).format('z');
 
 document.querySelector('#timezone').innerHTML = timeZoneName;
 document.querySelector('#shortNameZone').innerHTML = timeZoneAbbr;
-
-console.log(timeZoneName); // Asia/Baku
-console.log(currTimeZone); // -240
-console.log(moment.tz.zone(timeZoneName).abbr(currTimeZone)); // +04
 
 
 
