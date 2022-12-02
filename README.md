@@ -1,5 +1,5 @@
 # time
-GitHub Page:https://angelina207.github.io/time/
+GitHub Page: https://angelina207.github.io/time/
 
 # Description
 
