@@ -171,6 +171,7 @@
     padding: 80px 20px;
     box-sizing: border-box;
     transition: height 300ms ease;
+    overflow: hidden;
 }
 #is-dark{
     background: rgba(0, 0, 0, 0.75);
@@ -282,6 +283,20 @@
 @media screen and (min-width: 1024px) {
     .timezome-desc{
        font-size: 3.5rem;
+    }
+    .time__btn{
+        width: 146px;
+    }
+    .btn-timezone{
+        padding: 20px 35px 20px 0;
+        width: 146px;
+        font-size: 1rem;
+    }
+    .btn-more-svg{
+        width: 40px;
+        height: 40px;
+        right: 9px;
+        top: 10px;
     }
 }
 @media screen and (min-width: 1440px) {
